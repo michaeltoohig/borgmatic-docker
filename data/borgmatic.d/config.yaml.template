@@ -1,0 +1,30 @@
+source_directories:
+  - /mnt/source
+
+repositories:
+  - path: /mnt/borg-repository
+    label: local
+  - path: ssh://xxx@xxx.repo.borgbase.com/./repo
+    label: borgbase
+
+one_file_system: true
+archive_name_format: 'backup-{utcnow}'
+
+patterns:
+  - '- [Tt]rash'
+  - '- [Cc]ache'
+exclude_if_present:
+  - .nobackup
+  - .NOBACKUP
+
+keep_hourly: 24
+keep_daily: 7
+keep_weekly: 4
+keep_monthly: 6
+
+before_everything:
+  - echo "Starting a backup job."
+after_everything:
+  - echo "Backup created."
+on_error:
+  - echo "Error while creating a backup."

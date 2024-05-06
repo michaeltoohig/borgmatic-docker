@@ -1,0 +1,15 @@
+.env
+
+# local development/testing directories
+source/
+target/
+restore/
+
+# data used by borg backup and private files within including ssh keys
+data/.borgmatic
+data/.cache
+data/.config
+data/.ssh
+
+# config file - use template to build new one
+config.yaml
