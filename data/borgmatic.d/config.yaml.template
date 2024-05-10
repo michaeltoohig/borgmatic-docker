@@ -7,7 +7,7 @@ repositories:
   - path: ssh://xxx@xxx.repo.borgbase.com/./repo
     label: borgbase
 
-one_file_system: true
+one_file_system: true # Set false for NAS when mounting data across volumes
 archive_name_format: 'backup-{utcnow}'
 
 patterns:
